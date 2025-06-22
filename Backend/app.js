@@ -26,7 +26,7 @@ const app = express();
 // ✅ Enable CORS
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://lux-stay-fe.vercel.app/https://lux-stay-fe.vercel.app",
     credentials: true,
   })
 );
