@@ -50,13 +50,13 @@ const login = async (req, res) => {
     );
 
     // Set token in secure httpOnly cookie
-   res.setHeader("Set-Cookie", cookie.serialize("token", token, {
-   httpOnly: true,
-   secure: false,         // ✅ false for localhost, true for HTTPS production (like Vercel)
-   sameSite: "Lax",       // ✅ allows cross-origin cookies on navigation and fetch
-   maxAge: 60 * 60 * 24,  // 1 day
-   path: "/",
-   }));
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: false,
+  sameSite: "Lax",
+  maxAge: 60 * 60 * 24 * 1000, // in milliseconds
+});
+
 
 
     res.status(200).json({
@@ -73,15 +73,14 @@ const login = async (req, res) => {
 };
 
 const logout = (req, res) => {
-  res.setHeader("Set-Cookie", cookie.serialize("token", "", {
-  httpOnly: true,
-  secure: false,
-  sameSite: "Lax",
-  maxAge: 0,
-  path: "/",
-  }));
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: false,
+    sameSite: "Lax",
+  });
 
   res.status(200).json({ message: "Logged out successfully" });
 };
+
 
 export { register, login, logout };
