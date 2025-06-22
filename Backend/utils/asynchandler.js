@@ -1,0 +1,8 @@
+// ✅ Correct version — now we RETURN the function properly
+const asyncHandler = (handler) => {
+  return (req, res, next) => {
+    Promise.resolve(handler(req, res, next)).catch(next);
+  };
+};
+
+export {asyncHandler};
