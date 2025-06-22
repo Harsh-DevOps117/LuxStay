@@ -52,7 +52,7 @@ const login = async (req, res) => {
     // Set token in secure httpOnly cookie
    res.setHeader("Set-Cookie", cookie.serialize("token", token, {
    httpOnly: true,
-   secure: true,         // ✅ false for localhost, true for HTTPS production (like Vercel)
+   secure: false,         // ✅ false for localhost, true for HTTPS production (like Vercel)
    sameSite: "Lax",       // ✅ allows cross-origin cookies on navigation and fetch
    maxAge: 60 * 60 * 24,  // 1 day
    path: "/",
