@@ -10,7 +10,6 @@ router.post("/signup", register);
 router.post("/login", login);
 router.get("/logout", logout);
 router.get("/me", requireAuth, async (req, res) => {
-  console.log("🍪 Cookies:", req.cookies); 
   const userId = req.user.userId;
   const user = await Login.findById(userId).select("-password");
   if (!user) return res.status(404).json({ message: "User not found" });
