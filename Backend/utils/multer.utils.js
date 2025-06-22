@@ -1,5 +1,5 @@
 import multer from "multer";
-import { storage } from "./cloudinary.js";
+import { storage } from "./cloudinary.utils.js";
 
 const fileFilter = (req, file, cb) => {
   const allowedTypes = ["image/jpeg", "image/png", "image/gif", "image/webp"];
