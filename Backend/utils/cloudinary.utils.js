@@ -6,7 +6,7 @@ dotenv.config();
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY, // ✅ typo fixed
+  api_key: process.env.CLOUNDINARY_API_KEY, // ✅ typo fixed
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
